@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Копирка Одинцово 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        .button {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #FF7E14;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%; /* Ensure buttons take full width */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        .button:hover {
+            background-color: #CC6400;
+        }
+        .note {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%; /* Ensure contact items take full width */
+        }
+        .contact-item .button {
+            flex: 1; /* Allow button to grow and fill remaining space */
+        }
+        .copy-icon {
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #666;
+            transition: color 0.3s;
+            margin-left: 10px; /* Add spacing between button and icon */
+        }
+        .copy-icon:hover {
+            color: #FF7E14;
+        }
+        .copied-message {
+            color: green;
+            font-size: 0.8em;
+            margin-left: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Копирка Одинцово 2</h1>
+        
+        <!-- Контакты -->
+        <section>
+            <h2>Контакты</h2>
+            <div class="contact-item">
+                <a href="https://api.whatsapp.com/send?phone=79015602589" class="button" style="
+    background-color: #25d366">WhatsApp</a>
+				<span class="copy-icon" onclick="copyToClipboard('+79015602589', 'wa-copied')">📋</span>
+                <span class="copied-message" id="wa-copied">Скопировано!</span>
+            </div>
+            <div class="contact-item">
+                <a href="https://t.me/kopirka272" class="button" style="
+    background-color: #24A1DE">Telegram</a>
+				<span class="copy-icon" onclick="copyToClipboard('@kopirka272', 'tg-copied')">📋</span>
+                <span class="copied-message" id="tg-copied">Скопировано!</span>
+            </div>
+            <div class="contact-item">
+                <a href="mailto:272@kopirka.ru" class="button">Email</a>
+                <span class="copy-icon" onclick="copyToClipboard('272@kopirka.ru', 'email-copied')">📋</span>
+                <span class="copied-message" id="email-copied">Скопировано!</span>
+            </div>
+            <div class="contact-item">
+                <a href="tel:74956603600p272" class="button">Телефон отделения</a>
+                <span class="copy-icon" onclick="copyToClipboard('+74956603600,272', 'phone-copied')">📋</span>
+                <span class="copied-message" id="phone-copied">Скопировано!</span>
+            </div>
+        </section>
+
+        <!-- Филиал на картах -->
+        <section>
+            <h2>Где мы находимся. Оставить отзыв</h2>
+			<div class="contact-item">
+              <p class="note">Московская область, Одинцово, Можайское шоссе, дом 71, ТЦ «Дубрава», -1 этаж</p>
+              <span class="copy-icon" onclick="copyToClipboard('Московская область, Одинцово, Можайское шоссе, дом 71', 'adress-copied')">📋</span>
+                <span class="copied-message" id="adress-copied">Скопировано!</span>
+                </div>
+            <a href="https://yandex.ru/maps/-/CDxmZM7R" class="button">Яндекс карты</a>
+            <a href="https://go.2gis.com/LT1vo" class="button">2ГИС</a>
+<!-- 			<p class="note">Построить маршрут, оставить отзыв о нашей работе</p> -->
+        </section>
+
+
+        <!-- Wi-Fi -->
+        <section>
+            <h2>Подключиться к Wi-Fi</h2>
+            <a href="WIFI:S:KOPIRKA_FREE;T:WPA2;P:kopirka1" class="button">Подключиться к Wi-Fi</a>
+            <p class="note">После перехода по ссылке ниже дождитесь страницы авторизации с оранжевой кнопкой и нажмите ее, чтобы подключиться.</p>
+        </section>
+    </div>
+
+    <script>
+        function copyToClipboard(text, messageId) {
+            // Copy text to clipboard
+            navigator.clipboard.writeText(text).then(() => {
+                // Show "Copied!" message
+                const messageElement = document.getElementById(messageId);
+                messageElement.style.display = 'inline';
+                setTimeout(() => {
+                    messageElement.style.display = 'none';
+                }, 2000);
+            }).catch((err) => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
